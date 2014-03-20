@@ -50,7 +50,8 @@
 
         <script type="javascript">
           $(function(){
-            $("#input").on("submit", function(e){
+            $("form#input").on("submit", function(e){
+              console.log("submit");
               e.preventDefault();
               var input = $("#input textarea").val(),
                 line = input.split('\r\n');
