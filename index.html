@@ -51,7 +51,7 @@
         <script type="javascript">
           $("#input").on("submit", function(e){
             e.preventDefault();
-            var input = $("#input").val(),
+            var input = $("#input textarea").val(),
               line = input.split('\r\n');
             var points = [];
             $.each(line, function(k, v){
@@ -61,7 +61,8 @@
                 y: parseFloat( point[1] )
               });
             });
-            console.log( points );
+            console.log( "points", points );
+            return false;
           });
         </script>
 
