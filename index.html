@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
     <meta charset='utf-8' />
@@ -37,16 +37,33 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" id="input">
           <div class="form-group">
             <textarea class="form-control" rows="3"></textarea>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button type="button" class="btn btn-default">Start</button>
+              <button type="submit" class="btn btn-default">Start</button>
             </div>
           </div>
         </form>
+
+        <script type="javascript">
+          $("#input").on("submit", function(e){
+            e.preventDefault();
+            var input = $("#input").val(),
+              line = input.split('\r\n');
+            var points = [];
+            $.each(line, function(k, v){
+              var point = v.split(' ');
+              points.push({
+                x: parseFloat( point[0] ),
+                y: parseFloat( point[1] )
+              });
+            });
+          });
+        </script>
+
       </section>
     </div>
 
