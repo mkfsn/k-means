@@ -39,7 +39,7 @@
       <section id="main_content" class="inner">
         <form class="form-horizontal" role="form" id="input">
           <div class="form-group">
-            <textarea class="form-control" rows="3"></textarea>
+            <textarea class="form-control" rows="9"></textarea>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -49,20 +49,22 @@
         </form>
 
         <script type="javascript">
-          $("#input").on("submit", function(e){
-            e.preventDefault();
-            var input = $("#input textarea").val(),
-              line = input.split('\r\n');
-            var points = [];
-            $.each(line, function(k, v){
-              var point = v.split(' ');
-              points.push({
-                x: parseFloat( point[0] ),
-                y: parseFloat( point[1] )
+          $(function(){
+            $("#input").on("submit", function(e){
+              e.preventDefault();
+              var input = $("#input textarea").val(),
+                line = input.split('\r\n');
+              var points = [];
+              $.each(line, function(k, v){
+                var point = v.split(' ');
+                points.push({
+                  x: parseFloat( point[0] ),
+                  y: parseFloat( point[1] )
+                });
               });
+              console.log( "points", points );
+              return false;
             });
-            console.log( "points", points );
-            return false;
           });
         </script>
 
