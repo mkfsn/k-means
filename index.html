@@ -10,9 +10,10 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
     
-    <script src="javascripts/jquery-2.1.0.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
 
+    <script type="text/javascript" type="javascript/kmeans.js"></script>
     <title>K-means</title>
   </head>
 
@@ -51,7 +52,6 @@
         <script type="text/javascript">
           $(function(){
             $("form#input").on("submit", function(e){
-              console.log("submit");
               e.preventDefault();
               var input = $("#input textarea").val(),
                 line = input.split('\n');
@@ -64,8 +64,8 @@
                   y: parseFloat( point[1] )
                 });
               });
-              console.log( "points", points );
-              return false;
+              var km = new kmeans(2, points);
+              console.log(km);
             });
           });
         </script>
