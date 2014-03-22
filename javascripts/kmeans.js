@@ -21,7 +21,11 @@ function kmeans(k, points) {
     console.log( sample );
   }
 
-  random_sample( points );
 
-  return _points;
+  var main = function () {
+    this.random_sample( _points );
+    return _points;
+  }
+
+  return this.main( points );
 };
