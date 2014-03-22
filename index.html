@@ -47,8 +47,12 @@
             <div class="col-lg-2 col-md-2 col-sm-2">
               <input class="form-control" type="number" min="2" id="k-value" value="2" placeholder="k">
             </div>
-            <div class="col-sm-9">
+            <div class="col-lg-3 col-md-3 col-sm-3">
               <button type="submit" class="btn btn-primary">Start</button>
+            </div>
+            <label class="control-label col-lg-1 col-md-1 col-sm-1" for="file">k = </label>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+              <input type="file" id="input-file" name="file">
             </div>
           </div>
         </form>
@@ -99,6 +103,12 @@
           });
         });
       });
+
+      function handleFileSelect(evt) {
+        var file = evt.target.files;
+        console.log(file);
+      }
+
     </script>
 
   </body>
