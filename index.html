@@ -204,7 +204,7 @@
         console.log(file);
         var r = new FileReader();
         r.onload = function(e) {
-          input = e.target.result;
+          file_content = e.target.result;
         }
         r.readAsText(file);
       }
