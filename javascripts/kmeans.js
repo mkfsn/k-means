@@ -46,6 +46,8 @@ function kmeans(k, points) {
         for ( var j = 0 ; j < _k ; j++ ) {
           t[j] = distance( _points[i], mean_points[j] );
         }
+        console.log( "t:", t );
+        console.log("min = ", Math.min(t));
         var idx = t.indexOf( Math.min(t) );
         console.log( "index:", idx );
         console.log( "group[i]", _group[idx] );
