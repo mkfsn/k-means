@@ -12,10 +12,12 @@ function kmeans(k, points) {
   /* random pick n points */
   var random_sample = function ( points ) {
     var sample = [];
-    for ( var i = 0 ; i < k && i < points.length ; i++ ) {
+    for ( var i = 0 ; i < _k && i < points.length ; i++ ) {
       var random_number = Math.floor(Math.random() * points.length);
+      /*
       while ( -1 == sample.indexOf( points[random_number] ) )
         random_number = Math.floor(Math.random() * points.length);
+      */
       sample.push( points[random_number] );
     }
     console.log( sample );
