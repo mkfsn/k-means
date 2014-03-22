@@ -48,8 +48,8 @@ function kmeans(k, points) {
           t[j] = distance( _points[i], mean_points[j] );
         }
         console.log( "t:", t );
-        console.log("min = ", Math.min(t));
-        var idx = t.indexOf( Math.min(t) );
+        console.log("min = ", Math.min(null ,t));
+        var idx = t.indexOf( Math.min.apply(Math, t) );
         console.log( "index:", idx );
         console.log( "group", _group );
         _group[t.indexOf(Math.min(t))].push( _points[i] );
