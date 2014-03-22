@@ -21,11 +21,7 @@ function kmeans(k, points) {
     console.log( sample );
   }
 
-  $.kmeans = function (k, points) {
-    _k      = k || 2;
-    _points = points || [];
-    random_sample();
-    return _points;
-  }
+  random_sample( points );
 
+  return _points;
 };
