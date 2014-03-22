@@ -27,5 +27,5 @@ function kmeans(k, points) {
     return _points;
   }
 
-  return this.main( points );
+  return main( points );
 };
