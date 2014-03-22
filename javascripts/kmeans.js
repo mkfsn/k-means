@@ -32,6 +32,7 @@ function kmeans(k, points) {
       y += points[i].y;
     }
     return { x: x/points.length, y: y/points.length };
+  }
 
   /* Just a main function */
   var main = function () {
