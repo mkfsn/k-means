@@ -186,6 +186,7 @@
               });
             }
           });
+          console.log( points );
           var km = new kmeans(kvalue, points);
           console.log("result", km);
           $("table#result tbody").html("");
@@ -203,7 +204,6 @@
 
       function handleFileSelect(evt) {
         var file = evt.target.files[0];
-        console.log(file);
         var r = new FileReader();
         r.onload = function(e) {
           file_content = e.target.result;
