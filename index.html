@@ -51,7 +51,7 @@
             </div>
           </div>
         </form>
-        <table class="table table-striped" id="result">
+        <table class="hide table table-striped" id="result" style="table-layout:fixed">
           <thead>
             <th>Group</th>
             <th>Points(s)</th>
@@ -87,11 +87,12 @@
           var km = new kmeans(kvalue, points);
           console.log("result", km);
           $.each(km, function(id, points){
-            var $tr = $("<tr></tr>"), $td = $("<td></td>");
+            var $tr = $("<tr></tr>"), $td = $('<td style="word-wrap:break-word"></td>');
             $tr.append( $("<td></td>").text( id+1 ) );
             $.each(points, function(k, p){
-              $td.append( "{" + p.x + "," + p.y + "}" );
+              $td.append( "{" + p.x + "," + p.y + "} " );
             });
+            $("table#result").show();
             $("table#result tbody").append( $tr.append($td) );
           });
         });
