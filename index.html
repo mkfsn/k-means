@@ -40,10 +40,10 @@
       <section id="main_content" class="inner">
         <form class="form-horizontal" role="form" id="input">
 
-          <ul class="nav nav-tabs">
-              <li class="active"><a href="#from-clickboard" data-toggle="tab">Directly</a></li>
-              <li><a href="#from-file" data-toggle="tab">File</a></li>
-              <li><a href="#sample-input" data-toggle="tab">Example</a></li>
+          <ul class="nav nav-tabs" id="input-source">
+            <li class="active"><a href="#from-clickboard" data-toggle="tab">Text</a></li>
+            <li><a href="#from-file" data-toggle="tab">File</a></li>
+            <li><a href="#sample-input" data-toggle="tab">Example</a></li>
           </ul>
           <!-- Tab panes -->
           <div class="tab-content from-group" style="padding:20px 0">
@@ -157,11 +157,24 @@
     </div>
 
     <script type="text/javascript">
+      var file_content = "";
+      
       $(function(){
         $("form#input").on("submit", function(e){
           e.preventDefault();
-          var input = $("#input textarea").val(),
-            line = input.split('\n'),
+          var input = "";
+          switch ( $("#input-source li").index($("#input-source li.active")) ) {
+            case 0:
+              input = $("#input textarea").val();
+              break;
+            case 1:
+              input = file_content;
+              break;
+            case 2:
+            default:
+              return;
+          }
+          var line = input.split('\n'),
             kvalue = parseInt( $("#input #k-value").val(), 10 );
           var points = [];
           $.each(line, function(k, v){
@@ -191,7 +204,7 @@
         console.log(file);
         var r = new FileReader();
         r.onload = function(e) {
-          console.log(e.target.result);
+          input = e.target.result;
         }
         r.readAsText(file);
       }
