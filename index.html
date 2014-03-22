@@ -179,10 +179,12 @@
           var points = [];
           $.each(line, function(k, v){
             var point = v.split(' ');
-            points.push({
-              x: parseFloat( point[0] ),
-              y: parseFloat( point[1] )
-            });
+            if ( point ) {
+              points.push({
+                x: parseFloat( point[0] ),
+                y: parseFloat( point[1] )
+              });
+            }
           });
           var km = new kmeans(kvalue, points);
           console.log("result", km);
