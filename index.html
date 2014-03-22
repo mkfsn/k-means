@@ -50,7 +50,7 @@
             <div class="col-lg-3 col-md-3 col-sm-3">
               <button type="submit" class="btn btn-primary">Start</button>
             </div>
-            <label class="control-label col-lg-1 col-md-1 col-sm-1" for="file">k = </label>
+            <label class="control-label col-lg-1 col-md-1 col-sm-1" for="input-file">or open</label>
             <div class="col-lg-5 col-md-5 col-sm-5">
               <input type="file" id="input-file" name="file">
             </div>
@@ -108,6 +108,7 @@
         var file = evt.target.files;
         console.log(file);
       }
+      $("#input-file").on('change', handleFileSelect);
 
     </script>
 
