@@ -179,7 +179,7 @@
           var points = [];
           $.each(line, function(k, v){
             var point = v.split(' ');
-            if ( point ) {
+            if ( point.length == 2 ) {
               points.push({
                 x: parseFloat( point[0] ),
                 y: parseFloat( point[1] )
