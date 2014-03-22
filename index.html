@@ -92,7 +92,7 @@
             $.each(points, function(k, p){
               $td.append( "{" + p.x + "," + p.y + "}" );
             });
-            $("#result table tbody").append( $tr.append($td) );
+            $("table#result tbody").append( $tr.append($td) );
           });
         });
       });
