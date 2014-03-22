@@ -14,16 +14,16 @@ function kmeans(k, points) {
     var sample = [];
     for ( var i = 0 ; i < k && i < points.length ; i++ ) {
       var random_number = Math.floor(Math.random() * points.length);
-      while ( -1 == sample.indexOf( points[random_num] ) )
+      while ( -1 == sample.indexOf( points[random_number] ) )
         random_number = Math.floor(Math.random() * points.length);
-      sample.push( points[random_num] );
+      sample.push( points[random_number] );
     }
     console.log( sample );
   }
 
 
   var main = function () {
-    this.random_sample( _points );
+    random_sample( _points );
     return _points;
   }
 
