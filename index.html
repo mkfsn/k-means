@@ -87,6 +87,7 @@
           });
           var km = new kmeans(kvalue, points);
           console.log("result", km);
+          $("table#result tbody").html("");
           $.each(km, function(id, points){
             var $tr = $("<tr></tr>"), $td = $('<td style="word-wrap:break-word"></td>');
             $tr.append( $("<td></td>").text( id+1 ) );
