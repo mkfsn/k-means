@@ -14,10 +14,12 @@ function kmeans(k, points) {
     var sample = [];
     for ( var i = 0 ; i < _k && i < points.length ; i++ ) {
       var random_number = Math.floor(Math.random() * points.length);
-      /*
-      while ( -1 == sample.indexOf( points[random_number] ) )
+      var max = 100;
+      while ( -1 == sample.indexOf( points[random_number] ) && max-- ) {
+        console.log("not hit", random_number);
         random_number = Math.floor(Math.random() * points.length);
-      */
+      }
+      console.log("hit", random_number);
       sample.push( points[random_number] );
     }
     console.log( sample );
