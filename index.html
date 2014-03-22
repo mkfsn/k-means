@@ -46,7 +46,7 @@
               <li><a href="#sample-input" data-toggle="tab">Example</a></li>
           </ul>
           <!-- Tab panes -->
-          <div class="tab-content from-group">
+          <div class="tab-content from-group" style="padding:20px 0">
             <div class="tab-pane active" id="from-clickboard">
               <textarea class="form-control" rows="9"></textarea>
             </div>
@@ -189,6 +189,7 @@
       function handleFileSelect(evt) {
         var file = evt.target.files[0];
         console.log(file);
+        var r = new FileReader();
         r.onload = function(e) {
           console.log(e.target.result);
         }
