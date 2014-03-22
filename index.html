@@ -93,7 +93,7 @@
             $.each(points, function(k, p){
               $td.append( "{" + p.x + "," + p.y + "} " );
             });
-            $("table#result").show();
+            $("table#result").removeClass("hide");
             $("table#result tbody").append( $tr.append($td) );
           });
         });
