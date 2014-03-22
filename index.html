@@ -46,16 +46,12 @@
               <li><a href="#sample-input" data-toggle="tab">Example</a></li>
           </ul>
           <!-- Tab panes -->
-          <div class="tab-content">
+          <div class="tab-content from-group">
             <div class="tab-pane active" id="from-clickboard">
-              <div class="form-group">
-                <textarea class="form-control" rows="9"></textarea>
-              </div>
+              <textarea class="form-control" rows="9"></textarea>
             </div>
             <div class="tab-pane" id="from-file">
-              <div class="col-lg-5 col-md-5 col-sm-5">
-                <input type="file" id="input-file" name="file">
-              </div>
+              <input type="file" id="input-file" name="file">
             </div>
             <div class="tab-pane" id="sample-input">
               <p>6 7</p>
@@ -131,6 +127,7 @@
               <p>5 18</p>
             </div>
           </div>
+          <div class="clearfix"></div>
           <div class="form-group">
             <label class="control-label col-lg-1 col-md-1 col-sm-1" for="k-value">k = </label>
             <div class="col-lg-2 col-md-2 col-sm-2">
@@ -190,8 +187,12 @@
       });
 
       function handleFileSelect(evt) {
-        var file = evt.target.files;
+        var file = evt.target.files[0];
         console.log(file);
+        r.onload = function(e) {
+          console.log(e.target.result);
+        }
+        r.readAsText(file);
       }
       $("#input-file").on('change', handleFileSelect);
 
