@@ -27,7 +27,7 @@ function kmeans(k, points) {
 
   var mean = function ( points ) {
     var x = 0.0, y = 0.0;
-    for ( i in points ) {
+    for ( var i in points ) {
       x += points[i].x;
       y += points[i].y;
     }
