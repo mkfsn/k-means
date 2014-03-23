@@ -136,6 +136,7 @@
             </div>
           </div>
         </form>
+        <div id="graph" class="hide"></div>
         <table class="hide table table-striped" id="result" style="table-layout:fixed">
           <thead>
             <th>Group</th>
@@ -175,6 +176,10 @@
           var line = input.split('\n'),
             kvalue = parseInt( $("#input #k-value").val(), 10 );
           var points = [];
+
+          var svg = d3.select('#graph').append('svg');
+          $("#graph").removeClass('hide');
+
           $.each(line, function(k, v){
             var point = v.split(' ');
             if ( point.length == 2 ) {
@@ -182,11 +187,18 @@
                 x: parseFloat( point[0] ),
                 y: parseFloat( point[1] )
               });
+              svg.append('circle').attr({
+                cx: 60,
+                cy: 60,
+                r: 5
+              }).style({
+                fill: 'black'
+              });
             }
           });
-          console.log( points );
+
+
           var km = new kmeans(kvalue, points);
-          console.log("result", km);
           $("table#result tbody").html("");
           $.each(km, function(id, points){
             var $tr = $("<tr></tr>"), $td = $('<td style="word-wrap:break-word"></td>');
@@ -209,8 +221,6 @@
         r.readAsText(file);
       }
       $("#input-file").on('change', handleFileSelect);
-
     </script>
-
   </body>
 </html>
