@@ -177,7 +177,10 @@
             kvalue = parseInt( $("#input #k-value").val(), 10 );
           var points = [];
 
-          var svg = d3.select('#graph').append('svg');
+          var svg = d3.select('#graph').append('svg')
+                      .attr("width", 600)
+                      .attr("height", 400);
+
           $("#graph").removeClass('hide');
 
           $.each(line, function(k, v){
