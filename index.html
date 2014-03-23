@@ -188,8 +188,8 @@
                 y: parseFloat( point[1] )
               });
               svg.append('circle').attr({
-                cx: 60,
-                cy: 60,
+                cx: parseFloat( point[0] ),
+                cy: parseFloat( point[1] ),
                 r: 5
               }).style({
                 fill: 'black'
