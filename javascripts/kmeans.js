@@ -37,7 +37,7 @@ function kmeans(k, points) {
   /* Just a main function */
   var main = function () {
     var mean_points = random_sample( _points );
-    {
+    while ( true ) {
       for ( var i = 0 ; i < _k ; i++ ) {
         _group[i] = [];
       }
@@ -48,6 +48,13 @@ function kmeans(k, points) {
         }
         var idx = t.indexOf( Math.min.apply(null, t) );
         _group[idx].push( _points[i] );
+      }
+      if ( mean(_group[0]) != mean_points[0] ) {
+        for ( var i = 0 ; i < _k ; i++ ) {
+          mean_points[i] = mean(_group[i]);
+        }
+      } else {
+        break;
       }
     }
     return _group;
