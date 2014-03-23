@@ -228,7 +228,7 @@
             $tr.append( $("<td></td>").text( id+1 ) );
             $.each(points, function(k, p){
               $td.append( "{" + p.x + "," + p.y + "} " );
-              var $circle = $("circle[cx="+(400-parseInt(p.x,10)*10)+"][cy="+(parseInt(p.y,10)*10)+"]");
+              var $circle = $("circle[cx="+(parseInt(p.x,10)*10)+"][cy="+(400-parseInt(p.y,10)*10)+"]");
               console.log($circle);
               $circle.css("fill", color);
             });
