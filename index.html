@@ -169,6 +169,15 @@
     <script type="text/javascript">
       var file_content = "";
       
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.round(Math.random() * 15)];                       
+        }
+        return color;
+      }
+
       $(function(){
         $("form#input").on("submit", function(e){
           e.preventDefault();
@@ -204,21 +213,22 @@
               svg.append('circle').attr({
                 cx: parseInt( point[0], 10 )*10,
                 cy: 400-parseInt( point[1], 10 )*10,
-                r: 5
+                r: 3
               }).style({
                 fill: 'black'
               });
             }
           });
 
-
           var km = new kmeans(kvalue, points);
           $("table#result tbody").html("");
           $.each(km, function(id, points){
-            var $tr = $("<tr></tr>"), $td = $('<td style="word-wrap:break-word"></td>');
+            var $tr = $("<tr></tr>"), $td = $('<td style="word-wrap:break-word"></td>'),
+              color = getRandomColor();
             $tr.append( $("<td></td>").text( id+1 ) );
             $.each(points, function(k, p){
               $td.append( "{" + p.x + "," + p.y + "} " );
+              $("circle[cx="+(400-p.x*10)+"][cy="+p.y*10+"]").css("fill", color);
             });
             $("table#result").removeClass("hide");
             $("table#result tbody").append( $tr.append($td) );
