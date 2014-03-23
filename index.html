@@ -197,6 +197,7 @@
             kvalue = parseInt( $("#input #k-value").val(), 10 );
           var points = [];
 
+          $("#graph").html('');
           var svg = d3.select('#graph').append('svg')
                       .attr("width", 600)
                       .attr("height", 400);
@@ -228,7 +229,9 @@
             $tr.append( $("<td></td>").text( id+1 ) );
             $.each(points, function(k, p){
               $td.append( "{" + p.x + "," + p.y + "} " );
-              var $circle = $("circle[cx="+(parseInt(p.x,10)*10)+"][cy="+(400-parseInt(p.y,10)*10)+"]");
+              var cx = parseInt(p.x, 10)*10;
+              var cy = 400-parseInt(p.y, 10)*10;
+              var $circle = $("circle[cx="+(cx)+"][cy="+(cy)+"]");
               console.log($circle);
               $circle.css("fill", color);
             });
