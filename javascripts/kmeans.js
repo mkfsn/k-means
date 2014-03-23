@@ -34,6 +34,26 @@ function kmeans(k, points) {
     return { x: x/points.length, y: y/points.length };
   }
 
+  var diff_obj = function ( obj1, obj2 ) {
+    if ( typeof obj1 === 'undefined' )
+      obj1 = {};
+    if ( typeof obj2 === 'undefined' )
+      obj2 = {};
+    for ( var k in obj1 ) {
+      if ( typeof obj2[k] === 'undefined' )
+        return false;
+      else if ( obj2[k] != obj1[k] )
+        return false;
+    }
+    for ( var k in obj2 ) {
+      if ( typeof obj1[k] === 'undefined' )
+        return false;
+      else if ( obj2[k] != obj1[k] )
+        return false;
+    }
+    return true;
+  }
+
   /* Just a main function */
   var main = function () {
     var mean_points = random_sample( _points );
@@ -49,7 +69,7 @@ function kmeans(k, points) {
         var idx = t.indexOf( Math.min.apply(null, t) );
         _group[idx].push( _points[i] );
       }
-      if ( mean(_group[0]) != mean_points[0] ) {
+      if ( diff_obj(mean(_group[0]), mean_points[0]) == false ) {
         for ( var i = 0 ; i < _k ; i++ ) {
           mean_points[i] = mean(_group[i]);
         }
