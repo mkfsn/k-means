@@ -221,6 +221,10 @@
             }
           });
 
+          if ( points.length < 2 ) {
+            return false;
+          }
+
           var km = new kmeans(kvalue, points);
           $("table#result tbody").html("");
           $.each(km, function(id, points){
