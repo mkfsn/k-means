@@ -35,7 +35,7 @@
       <header class="inner">
         <a id="forkme_banner" href="https://github.com/mkfsn/k-means">View on GitHub</a>
 
-        <h1 id="project_title">K-means</h1>
+        <h1 id="project_title">K-means <small>Q36024222</small></h1>
           <section id="downloads">
             <a class="zip_download_link" href="https://github.com/mkfsn/k-means/zipball/master">Download this project as a .zip file</a>
             <a class="tar_download_link" href="https://github.com/mkfsn/k-means/tarball/master">Download this project as a tar.gz file</a>
@@ -202,8 +202,6 @@
                       .attr("width", 600)
                       .attr("height", 400);
 
-          $("#graph").removeClass('hide');
-
           $.each(line, function(k, v){
             var point = v.split(' ');
             if ( point.length == 2 ) {
@@ -224,6 +222,7 @@
           if ( points.length < 2 ) {
             return false;
           }
+          $("#graph").removeClass('hide');
 
           var km = new kmeans(kvalue, points);
           $("table#result tbody").html("");
